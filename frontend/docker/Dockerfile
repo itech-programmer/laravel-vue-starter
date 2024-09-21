@@ -1,5 +1,5 @@
 # Используем официальный образ Node.js
-FROM node:16
+FROM node:18 AS builder
 
 # Устанавливаем рабочую директорию
 WORKDIR /var/www/frontend
@@ -16,8 +16,14 @@ COPY . .
 # Собираем приложение
 RUN yarn build
 
-# Открываем порт 8080
-EXPOSE 8080
+# Этап 2: Запуск Nginx
+FROM nginx:alpine
 
-# Запускаем приложение
-CMD ["yarn", "serve"]
+# Копируем собранное приложение
+COPY --from=builder /var/www/frontend/dist /usr/share/nginx/html
+
+# Открываем порт 80
+EXPOSE 80
+
+# Запускаем Nginx
+CMD ["nginx", "-g", "daemon off;"]

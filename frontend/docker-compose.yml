@@ -1,12 +1,10 @@
 services:
-    app:
+    frontend-app:
         build:
             context: .
             dockerfile: docker/Dockerfile
-        volumes:
-            - .:/var/www/frontend
         ports:
-            - "8080:8080"
+            - "3000:80"  # Прокси для доступа к Vue через 3000 порт
         networks:
             - app-network
 

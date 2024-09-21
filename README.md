@@ -56,8 +56,8 @@ laravel-vue-starter/
 ## Использование
 После запуска проекта, вы сможете получить доступ к следующим компонентам:
 
-- **Приложение Vue**: [http://localhost:8080](http://localhost:8080)
-- **API Laravel**: [http://localhost:9000](http://localhost:9000)
+- **Приложение Vue**: [http://localhost:3000](http://localhost:3000)
+- **API Laravel**: [http://localhost:8000](http://localhost:8000)
 
 ### Скриншоты
 
